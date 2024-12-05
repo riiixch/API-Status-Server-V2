@@ -1,8 +1,10 @@
 # API Status Server V2
 
+## English
+
 A lightweight server for monitoring system status such as OS info, CPU usage, RAM usage, Disk info, Network stats, Uptime, and Node.js version. Designed to work on **Windows** and **Linux** platforms.
 
-## Features
+### Features
 
 - Retrieve real-time system stats:
   - Operating System information
@@ -16,12 +18,12 @@ A lightweight server for monitoring system status such as OS info, CPU usage, RA
 - Auto-updates stats every second
 - Simple REST API for fetching the data
 
-## Prerequisites
+### Prerequisites
 
 - Node.js >= 14.x
 - Supported platforms: Windows or Linux
 
-## Installation
+### Installation
 
 1. Clone the repository:
    ```bash
@@ -42,6 +44,51 @@ A lightweight server for monitoring system status such as OS info, CPU usage, RA
 4. Access the server:
    - Root endpoint: [http://localhost:3000](http://localhost:3000)
    - Status endpoint: [http://localhost:3000/status](http://localhost:3000/status)
+
+## ภาษาไทย
+
+เซิร์ฟเวอร์ที่มีน้ำหนักเบาสำหรับการตรวจสอบสถานะของระบบ เช่น ข้อมูลระบบปฏิบัติการ, การใช้งาน CPU, การใช้งาน RAM, ข้อมูลดิสก์, สถิติเน็ตเวิร์ก, อัพไทม์, และเวอร์ชัน Node.js ออกแบบให้ทำงานได้ทั้งในระบบ **Windows** และ **Linux**.
+
+### ฟีเจอร์
+
+- ดึงข้อมูลสถิติเบื้องต้นของระบบแบบเรียลไทม์:
+  - ข้อมูลระบบปฏิบัติการ
+  - โมเดล CPU, จำนวนคอร์, จำนวนเธรด และเปอร์เซ็นต์การใช้งาน
+  - RAM (รวม, ใช้แล้ว, เหลือ, และเปอร์เซ็นต์การใช้งาน)
+  - ดิสก์ (รวม, ใช้แล้ว, เหลือ, และเปอร์เซ็นต์การใช้งาน)
+  - เน็ตเวิร์ก (ข้อมูลที่รับ/ส่งทั้งหมดและความเร็วแบบเรียลไทม์)
+  - อัพไทม์ของระบบในรูปแบบที่เข้าใจง่าย
+  - เวอร์ชันของ Node.js
+- รองรับระบบปฏิบัติการ **Windows** และ **Linux**
+- อัพเดตสถิติอัตโนมัติทุกวินาที
+- API REST ที่ง่ายสำหรับการดึงข้อมูล
+
+### ข้อกำหนดเบื้องต้น
+
+- Node.js >= 14.x
+- ระบบที่รองรับ: Windows หรือ Linux
+
+### การติดตั้ง
+
+1. โคลน repository:
+   ```bash
+   git clone https://github.com/riiixch/API-Status-Server-V2.git
+   cd API-Status-Server-V2
+   ```
+
+2. ติดตั้ง dependencies:
+   ```bash
+   npm install
+   ```
+
+3. เริ่มเซิร์ฟเวอร์:
+   ```bash
+   node .
+   ```
+
+4. เข้าถึงเซิร์ฟเวอร์:
+   - Endpoint หลัก: [http://localhost:3000](http://localhost:3000)
+   - Endpoint สถานะ: [http://localhost:3000/status](http://localhost:3000/status)
 
 ## API Endpoints
 
