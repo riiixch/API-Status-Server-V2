@@ -1,14 +1,14 @@
 {
-  "name": "disk",
+  "name": "api-status-server-v2",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "RIIIXCH",
+  "license": "MIT",
+  "description": "A lightweight server for monitoring system status such as OS info, CPU usage, RAM usage, Disk info, Network stats, Uptime, and Node.js version. Designed to work on Windows and Linux platforms.",
   "dependencies": {
     "express": "^4.21.1"
   }
