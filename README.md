@@ -1,3 +1,4 @@
+
 # API Status Server V2
 
 ## English
@@ -45,6 +46,81 @@ A lightweight server for monitoring system status such as OS info, CPU usage, RA
    - Root endpoint: [http://localhost:3000](http://localhost:3000)
    - Status endpoint: [http://localhost:3000/status](http://localhost:3000/status)
 
+### API Endpoints
+
+#### GET `/status`
+
+Fetches the current system status.
+
+#### Example Response:
+```json
+{
+  "data": {
+    "os": "Linux",
+    "cpu": {
+      "model": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+      "cores": 6,
+      "threads": 12,
+      "usage": 15.2
+    },
+    "ram": {
+      "total": "16.00 GB",
+      "free": "8.00 GB",
+      "used": "8.00 GB",
+      "usage": 50.0
+    },
+    "disk": {
+      "total": "500.00 GB",
+      "free": "200.00 GB",
+      "used": "300.00 GB",
+      "usage": 60.0
+    },
+    "network": {
+      "received": "1.00 GB",
+      "sent": "500.00 MB",
+      "speed": {
+        "received": "1.00 Mbps",
+        "sent": "500.00 Kbps"
+      }
+    },
+    "uptime": "02:15:30",
+    "nodejs": "20.0.0"
+  }
+}
+```
+
+#### Root (`/`)
+
+Returns a welcome message.
+
+#### Catch-All (`*`)
+
+Handles all undefined routes with a default message.
+
+### Platform Support
+
+- **Windows**: Uses `wmic` for CPU and disk information.
+- **Linux**: Uses `lscpu`, `df`, and `/proc/net/dev` for system stats.
+
+### Customization
+
+- Update the `PORT` variable in the source code to change the server's port.
+- Adjust the `updateStatsInterval` variable to modify the stats refresh interval.
+
+### Notes
+
+- Ensure the necessary system tools are available on your platform:
+  - **Windows**: `wmic` must be enabled.
+  - **Linux**: Commands like `lscpu`, `df`, and `/proc/net/dev` should be accessible.
+
+### License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+Created with ❤️ by **RIIIXCH**
+
 ## ภาษาไทย
 
 เซิร์ฟเวอร์ที่มีน้ำหนักเบาสำหรับการตรวจสอบสถานะของระบบ เช่น ข้อมูลระบบปฏิบัติการ, การใช้งาน CPU, การใช้งาน RAM, ข้อมูลดิสก์, สถิติเน็ตเวิร์ก, อัพไทม์, และเวอร์ชัน Node.js ออกแบบให้ทำงานได้ทั้งในระบบ **Windows** และ **Linux**.
@@ -90,13 +166,13 @@ A lightweight server for monitoring system status such as OS info, CPU usage, RA
    - Endpoint หลัก: [http://localhost:3000](http://localhost:3000)
    - Endpoint สถานะ: [http://localhost:3000/status](http://localhost:3000/status)
 
-## API Endpoints
+### API Endpoints
 
-### GET `/status`
+#### GET `/status`
 
-Fetches the current system status.
+ดึงข้อมูลสถานะปัจจุบันของระบบ
 
-#### Example Response:
+#### ตัวอย่างการตอบกลับ:
 ```json
 {
   "data": {
@@ -133,33 +209,33 @@ Fetches the current system status.
 }
 ```
 
-### Root (`/`)
+#### Root (`/`)
 
-Returns a welcome message.
+แสดงข้อความต้อนรับ
 
-### Catch-All (`*`)
+#### Catch-All (`*`)
 
-Handles all undefined routes with a default message.
+จัดการเส้นทางที่ไม่ได้กำหนดด้วยข้อความเริ่มต้น
 
-## Platform Support
+### Platform Support
 
-- **Windows**: Uses `wmic` for CPU and disk information.
-- **Linux**: Uses `lscpu`, `df`, and `/proc/net/dev` for system stats.
+- **Windows**: ใช้ `wmic` สำหรับข้อมูล CPU และดิสก์
+- **Linux**: ใช้ `lscpu`, `df`, และ `/proc/net/dev` สำหรับสถิติเกี่ยวกับระบบ
 
-## Customization
+### Customization
 
-- Update the `PORT` variable in the source code to change the server's port.
-- Adjust the `updateStatsInterval` variable to modify the stats refresh interval.
+- อัปเดตตัวแปร `PORT` ในซอร์สโค้ดเพื่อเปลี่ยนพอร์ตของเซิร์ฟเวอร์
+- ปรับตัวแปร `updateStatsInterval` เพื่อปรับช่วงเวลาในการอัพเดตสถิติ
 
-## Notes
+### Notes
 
-- Ensure the necessary system tools are available on your platform:
-  - **Windows**: `wmic` must be enabled.
-  - **Linux**: Commands like `lscpu`, `df`, and `/proc/net/dev` should be accessible.
+- ตรวจสอบให้แน่ใจว่าเครื่องมือที่จำเป็นมีอยู่ในแพลตฟอร์มของคุณ:
+  - **Windows**: ต้องเปิดใช้งาน `wmic`
+  - **Linux**: คำสั่งอย่าง `lscpu`, `df`, และ `/proc/net/dev` ควรสามารถเข้าถึงได้
 
-## License
+### License
 
-This project is licensed under the [MIT License](LICENSE).
+โปรเจ็กต์นี้ใช้ [MIT License](LICENSE)
 
 ---
 
