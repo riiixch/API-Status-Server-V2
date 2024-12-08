@@ -108,7 +108,7 @@ async function getDiskInfo() {
             totalSize += Number(size);
 
             return {
-                drive: caption,
+                drive: caption.replace(':', ''),
                 total: formatBytes(size),
                 free: formatBytes(free),
                 used: formatBytes(Number(size) - Number(free)),
@@ -140,7 +140,7 @@ async function getDiskInfo() {
             totalSize += total;
 
             return {
-                drive: dir,
+                drive: dir.replace('/dev/', ''),
                 total: formatBytes(total),
                 free: formatBytes(free),
                 used: formatBytes(total - free),
