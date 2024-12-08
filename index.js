@@ -43,9 +43,9 @@ async function getCPUInfo() {
         const cpus = lines.map(line => {
             const [loadPercentage, name, cores, threads] = line.trim().split(/\s{2,}/);
             return {
-                model: name,
-                cores: Number(cores),
-                threads: Number(threads),
+                model: name || 'N/A',
+                cores: Number(cores) || 0,
+                threads: Number(threads) || 0,
                 usage: Number(loadPercentage) || 0,
             };
         });
@@ -53,7 +53,7 @@ async function getCPUInfo() {
         const totalUsage = cpus.reduce((sum, cpu) => sum + cpu.usage, 0);
         return {
             cpus,
-            model: cpus[0].model,
+            model: cpus[0].model || 'N/A',
             cores: cpus.reduce((sum, cpu) => sum + cpu.cores, 0),
             threads: cpus.reduce((sum, cpu) => sum + cpu.threads, 0),
             usage: Number((totalUsage / cpus.length).toFixed(2)),
@@ -71,9 +71,9 @@ async function getCPUInfo() {
         const cores = Number(lines[2].trim().split(/\s{2,}/)[1]);
 
         return {
-            model: model,
-            cores: cores,
-            threads: cores * threads,
+            model: model || 'N/A',
+            cores: cores || 0,
+            threads: cores * threads || 0,
             usage: Number(cpuUsage.toFixed(2)),
         };
     }
@@ -249,7 +249,7 @@ const updateStats = async () => {
         previousNetworkData = network.raw;
         cachedData = { os, cpu, ram, disk, network, uptime, nodejs };
     } catch (error) {
-        console.error("Failed to update stats:", error);
+        log('Failed to update stats:', error);
     }
 };
 
@@ -260,8 +260,8 @@ app.get('/', (req, res) => {
     res.send('API Status Server V2 By. RIIIXCH');
 });
 
-app.get("/status", (req, res) => {
-    res.json({ data: cachedData });
+app.get('/status', (req, res) => {
+    res.json(cachedData);
 });
 
 app.all('*', (req, res) => {
