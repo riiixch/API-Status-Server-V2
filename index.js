@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const { exec } = require("child_process");
 const util = require("util");
@@ -6,7 +7,7 @@ const os = require("os");
 const { log } = require("console");
 
 const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PORT);
 
 const execPromise = util.promisify(exec);
 
@@ -233,7 +234,7 @@ function getNodeVersion() {
 
 let cachedData = {};
 let previousNetworkData = { received: 0, sent: 0 };
-const updateStatsInterval = 1000;
+const updateStatsInterval = 1000 * (Number(process.env.UPDATE_TIME_SEC) ?? 1);
 
 const updateStats = async () => {
     try {
