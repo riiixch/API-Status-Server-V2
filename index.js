@@ -7,7 +7,7 @@ const os = require("os");
 const { log } = require("console");
 
 const app = express();
-const PORT = Number(process.env.PORT);
+const PORT = Number(process.env.PORT) || 3000;
 
 const execPromise = util.promisify(exec);
 
@@ -234,7 +234,7 @@ function getNodeVersion() {
 
 let cachedData = {};
 let previousNetworkData = { received: 0, sent: 0 };
-const updateStatsInterval = 1000 * (Number(process.env.UPDATE_TIME_SEC) ?? 1);
+const updateStatsInterval = 1000 * (Number(process.env.UPDATE_TIME_SEC) || 1);
 
 const updateStats = async () => {
     try {
